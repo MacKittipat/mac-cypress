@@ -23,3 +23,10 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('login', function() {
+    cy.visit('/login');
+    cy.get('input[ng-reflect-name=email]').type('mac@mac.com');
+    cy.get('input[ng-reflect-name=password]').type('password');
+    cy.get('button[type=submit]').click();
+});
